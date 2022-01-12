@@ -1,0 +1,27 @@
+.form {
+  margin: 0 auto;
+}
+
+.form__group:not(:last-child) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form__label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.form__input {
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background-color: rgba(black, 0.5);
+}
