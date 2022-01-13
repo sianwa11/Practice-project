@@ -1,9 +1,15 @@
 // import "./App.css";
 
 import Form from "./Components/Form/Form";
+import UserPanel from "./Components/User/UserPanel";
 
 function App() {
-  return <Form></Form>;
+  return (
+    <div>
+      <Form></Form>
+      <UserPanel></UserPanel>
+    </div>
+  );
 }
 
 export default App;
