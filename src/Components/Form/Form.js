@@ -8,6 +8,7 @@ import "./Form.css";
 const Form = (props) => {
   const [enteredName, setName] = useState("");
   const [enteredAge, setAge] = useState("");
+  // const [validationStatus, setValidationStatus] = useState();
 
   const nameHandler = (e) => {
     setName(e.target.value);
@@ -22,10 +23,14 @@ const Form = (props) => {
     const userData = {
       id: Math.round(Math.random() * 1000),
       name: enteredName,
-      age: enteredAge,
+      age: +enteredAge,
     };
 
+    props.addUser(userData);
+
     console.log(userData);
+    setName("");
+    setAge("");
   };
 
   return (

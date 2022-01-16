@@ -1,0 +1,30 @@
+.modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__content {
+  margin: 15% auto;
+}
+.modal__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal__close {
+  font-size: 1.6rem;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.modal__close--btn:hover,
+.modal__close--btn:focus {
+  transform: translateY(-2px);
+  cursor: pointer;
+}
