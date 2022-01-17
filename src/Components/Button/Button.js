@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./Button.css";
+import style from "./Button.module.css";
 
 const Button = (props) => {
-  return <button className="btn btn--mid">Add User</button>;
+  return <button className={style.btn}>{props.name}</button>;
 };
 
 export default Button;

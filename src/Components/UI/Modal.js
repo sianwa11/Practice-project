@@ -1,6 +1,7 @@
 import React from "react";
 
-import "./Modal.css";
+import styles from "./Modal.module.css";
+import classes from "../UI/Card.module.css";
 
 const Modal = (props) => {
   const exitModal = (e) => {
@@ -9,12 +10,12 @@ const Modal = (props) => {
   };
 
   return (
-    <div className="modal" onClick={exitModal}>
-      <div className="modal__content">
-        <div className="card">
-          <div className="modal__text">
-            <span className="modal__close" onClick={exitModal}>
-              <i className="modal__close--btn">&times;</i>
+    <div className={styles.modal} onClick={exitModal}>
+      <div className={styles.modal__content}>
+        <div className={classes.card}>
+          <div className={styles.modal__text}>
+            <span className={styles.modal__close} onClick={exitModal}>
+              <i className={styles["modal__close--btn"]}>&times;</i>
             </span>
             <p>{props.errMsg}</p>
           </div>

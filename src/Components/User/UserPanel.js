@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from "../UI/Card";
 import SVG from "../UI/SVG";
-import "./UserPanel.css";
+import classes from "./UserPanel.module.css";
 
 const UserPanel = (props) => {
   const removeUserHandler = (index) => {
@@ -10,13 +10,13 @@ const UserPanel = (props) => {
   };
   return (
     <Card>
-      <ul className="user__list">
+      <ul className={classes.user__list}>
         {props.userData.map((data, index) => (
-          <li className="user__list--item" key={index}>
-            <p className="user__list--name">{data.name}</p>
-            <p className="user__list--name">Age: {data.age}</p>
+          <li className={classes["user__list--item"]} key={index} id={data.id}>
+            <p className={classes["user__list--name"]}>{data.name}</p>
+            <p className={classes["user__list--name"]}>Age: {data.age}</p>
             <SVG
-              class={"user__list--icon"}
+              class={classes["user__list--icon"]}
               selectUserKey={removeUserHandler}
               userKey={index}
             />

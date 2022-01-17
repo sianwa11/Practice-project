@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import Card from "../UI/Card";
 
-import "./Form.css";
+import classes from "./Form.module.css";
 
 const Form = (props) => {
   const [enteredName, setName] = useState("");
@@ -26,48 +26,49 @@ const Form = (props) => {
       age: +enteredAge,
     };
 
+    if (userData.name.trim() === "") return;
+
     props.addUser(userData);
 
-    console.log(userData);
     setName("");
     setAge("");
   };
 
   return (
     <Card>
-      <form className="form" onSubmit={formHandler}>
-        <div className="form__group">
-          <label for="name" className="form__label">
+      <form className={classes.form} onSubmit={formHandler}>
+        <div className={classes.form__group}>
+          <label for="name" className={classes.form__label}>
             Full name
           </label>
           <input
             id="name"
             name="name"
             type="text"
-            className="form__input"
+            className={classes.form__input}
             placeholder="Full Name..."
             required
             value={enteredName}
             onChange={nameHandler}
           />
         </div>
-        <div className="form__group">
-          <label for="age" className="form__label">
+        <div className={classes.form__group}>
+          <label for="age" className={classes.form__label}>
             age
           </label>
           <input
             id="age"
             name="age"
             type="number"
-            className="form__input"
+            className={classes.form__input}
             placeholder="Age..."
             required
             value={enteredAge}
             onChange={ageHandler}
           />
         </div>
-        <div className="form__group">
-          <Button />
+        <div className={classes.form__group}>
+          <Button name="Add User" />
         </div>
       </form>
     </Card>
