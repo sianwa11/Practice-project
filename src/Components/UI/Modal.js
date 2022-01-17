@@ -1,9 +1,10 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 import styles from "./Modal.module.css";
 import classes from "../UI/Card.module.css";
 
-const Modal = (props) => {
+const Backdrop = (props) => {
   const exitModal = (e) => {
     console.log(e.target);
     props.changeModalState(false);
@@ -22,6 +23,17 @@ const Modal = (props) => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Modal = (props) => {
+  // Portal to render html content elswhere
+  return ReactDOM.createPortal(
+    <Backdrop
+      errMsg={props.errMsg}
+      changeModalState={props.changeModalState}
+    />,
+    document.getElementById("backdrop-root")
   );
 };
 

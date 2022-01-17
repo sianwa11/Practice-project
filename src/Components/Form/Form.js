@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 import Button from "../Button/Button";
 import Card from "../UI/Card";
@@ -6,32 +6,27 @@ import Card from "../UI/Card";
 import classes from "./Form.module.css";
 
 const Form = (props) => {
-  const [enteredName, setName] = useState("");
-  const [enteredAge, setAge] = useState("");
-  // const [validationStatus, setValidationStatus] = useState();
-
-  const nameHandler = (e) => {
-    setName(e.target.value);
-  };
-  const ageHandler = (e) => {
-    setAge(e.target.value);
-  };
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
 
   const formHandler = (e) => {
     e.preventDefault();
+    const enteredUserName = nameInputRef.current.value;
+    const enteredUserAge = ageInputRef.current.value;
 
     const userData = {
       id: Math.round(Math.random() * 1000),
-      name: enteredName,
-      age: +enteredAge,
+      name: enteredUserName,
+      age: +enteredUserAge,
     };
 
-    if (userData.name.trim() === "") return;
+    if (enteredUserName.trim() === "") return;
 
     props.addUser(userData);
 
-    setName("");
-    setAge("");
+    // rarely use refs to manipulate dom
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
 
   return (
@@ -48,8 +43,7 @@ const Form = (props) => {
             className={classes.form__input}
             placeholder="Full Name..."
             required
-            value={enteredName}
-            onChange={nameHandler}
+            ref={nameInputRef}
           />
         </div>
         <div className={classes.form__group}>
@@ -63,8 +57,7 @@ const Form = (props) => {
             className={classes.form__input}
             placeholder="Age..."
             required
-            value={enteredAge}
-            onChange={ageHandler}
+            ref={ageInputRef}
           />
         </div>
         <div className={classes.form__group}>
