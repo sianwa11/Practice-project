@@ -14,13 +14,9 @@ function App() {
   const [allUsers, setUsers] = useState(users);
   const [showModal, setState] = useState(false);
 
-  //TODO: The remove user method has a bug
   const removeUserHandler = (index) => {
-    setUsers((prevUsers) => {
-      prevUsers.splice(index, 1);
-      console.log(prevUsers);
-      return [...prevUsers];
-    });
+    const alteredUsers = allUsers.filter((user, i) => i !== index);
+    setUsers(alteredUsers);
   };
 
   let message = "";
